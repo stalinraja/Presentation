@@ -18,6 +18,7 @@ import jsPDF from 'jspdf';
 
 function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
   
   const slides = [
     <TitleSlide />,
@@ -42,6 +43,25 @@ function App() {
     if (currentSlide > 0) {
       setCurrentSlide(currentSlide - 1);
     }
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStart === null) return;
+    const touchEnd = e.changedTouches[0].clientX;
+    const diff = touchStart - touchEnd;
+    const threshold = 50;
+    if (Math.abs(diff) > threshold) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+    setTouchStart(null);
   };
 
   // Keyboard navigation
@@ -104,7 +124,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-4 md:p-8">
       <KeyboardHint />
       <div className="relative">
         {/* A4 Portrait Container (794px x 1123px at 96dpi) */}
@@ -112,9 +132,12 @@ function App() {
           id="presentation-container"
           className="bg-white shadow-2xl overflow-hidden relative"
           style={{ 
-            width: '794px', 
-            height: '1123px',
+            width: '100%', 
+            maxWidth: '794px',
+            aspectRatio: '794 / 1123'
           }}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           {/* Slide Content */}
           <div className="w-full h-full">
@@ -123,7 +146,7 @@ function App() {
         </div>
 
         {/* Navigation Controls */}
-        <div className="absolute -left-16 top-1/2 -translate-y-1/2 flex flex-col gap-4">
+        <div className="absolute -left-16 top-1/2 -translate-y-1/2 flex flex-col gap-4 hidden md:flex">
           <button
             onClick={prevSlide}
             disabled={currentSlide === 0}
@@ -141,7 +164,7 @@ function App() {
         </div>
 
         {/* Bottom Navigation Bar */}
-        <div className="absolute -bottom-20 left-0 right-0 flex items-center justify-between">
+        <div className="absolute -bottom-16 md:-bottom-20 left-0 right-0 flex items-center justify-between">
           <Navigation 
             currentSlide={currentSlide} 
             totalSlides={slides.length}
