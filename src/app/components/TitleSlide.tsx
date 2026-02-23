@@ -3,7 +3,7 @@ import { Sparkles, Calendar } from 'lucide-react';
 
 export function TitleSlide() {
   return (
-    <div className="h-full w-full bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 flex flex-col items-center justify-center text-white p-16 relative overflow-hidden">
+    <div className="h-full w-full bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 flex flex-col items-center justify-center text-white p-4 md:p-16 relative overflow-hidden">
       {/* Animated background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-20 w-64 h-64 bg-white rounded-full blur-3xl"></div>
@@ -29,7 +29,7 @@ export function TitleSlide() {
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.6 }}
-          className="text-5xl mb-6 leading-tight"
+          className="text-3xl md:text-5xl mb-6 leading-tight"
         >
           Digital Transformation
         </motion.h1>
@@ -40,7 +40,7 @@ export function TitleSlide() {
           transition={{ delay: 0.7, duration: 0.6 }}
           className="mb-12"
         >
-          <h2 className="text-3xl mb-2">
+          <h2 className="text-xl md:text-3xl mb-2">
             CSI Thoothukudi Nazareth Diocese
           </h2>
           <div className="w-32 h-1 bg-yellow-400 mx-auto mt-4"></div>
@@ -52,10 +52,10 @@ export function TitleSlide() {
           transition={{ delay: 0.9, duration: 0.6 }}
           className="space-y-4"
         >
-          <p className="text-xl text-blue-100">
+          <p className="text-lg md:text-xl text-blue-100">
             Transitioning 79 years of legacy into a
           </p>
-          <p className="text-2xl">
+          <p className="text-lg md:text-2xl">
             Future-Ready Digital Ecosystem
           </p>
         </motion.div>

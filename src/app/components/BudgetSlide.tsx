@@ -31,7 +31,7 @@ export function BudgetSlide() {
   };
 
   return (
-    <div className="h-full w-full bg-gradient-to-br from-slate-50 to-blue-50 p-12">
+    <div className="h-full w-full bg-gradient-to-br from-slate-50 to-blue-50 p-4 md:p-12">
       <motion.div
         initial={{ y: -30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -40,12 +40,12 @@ export function BudgetSlide() {
       >
         <div className="flex items-center gap-3 mb-3">
           <DollarSign className="w-8 h-8 text-green-600" />
-          <h2 className="text-4xl text-slate-800">Budget Structure</h2>
+          <h2 className="text-2xl md:text-4xl text-slate-800">Budget Structure</h2>
         </div>
-        <p className="text-xl text-slate-600">Estimated Budgetary Allocation</p>
+        <p className="text-lg md:text-xl text-slate-600">Estimated Budgetary Allocation</p>
       </motion.div>
 
-      <div className="grid grid-cols-2 gap-8 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-8">
         {/* Chart */}
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}

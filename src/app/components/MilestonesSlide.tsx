@@ -62,7 +62,7 @@ export function MilestonesSlide() {
   ];
 
   return (
-    <div className="h-full w-full bg-gradient-to-br from-slate-50 to-slate-100 p-12 overflow-auto">
+    <div className="h-full w-full bg-gradient-to-br from-slate-50 to-slate-100 p-4 md:p-12 overflow-auto">
       <motion.div
         initial={{ y: -30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -71,7 +71,7 @@ export function MilestonesSlide() {
       >
         <div className="flex items-center gap-3 mb-3">
           <Flag className="w-8 h-8 text-blue-600" />
-          <h2 className="text-4xl text-slate-800">Key Milestones</h2>
+          <h2 className="text-2xl md:text-4xl text-slate-800">Key Milestones</h2>
         </div>
         <p className="text-xl text-slate-600">24-Month Delivery Timeline</p>
       </motion.div>

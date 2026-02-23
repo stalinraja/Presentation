@@ -30,7 +30,7 @@ export function TechnicalArchitectureSlide() {
   ];
 
   return (
-    <div className="h-full w-full bg-gradient-to-br from-slate-50 to-blue-50 p-12">
+    <div className="h-full w-full bg-gradient-to-br from-slate-50 to-blue-50 p-4 md:p-12">
       <motion.div
         initial={{ y: -30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -38,9 +38,9 @@ export function TechnicalArchitectureSlide() {
       >
         <div className="flex items-center gap-3 mb-3">
           <Layers className="w-8 h-8 text-purple-600" />
-          <h2 className="text-4xl text-slate-800">The "How"</h2>
+          <h2 className="text-2xl md:text-4xl text-slate-800">The "How"</h2>
         </div>
-        <p className="text-xl text-slate-600 mb-10">Technical Architecture</p>
+        <p className="text-lg md:text-xl text-slate-600 mb-10">Technical Architecture</p>
       </motion.div>
 
       <motion.div
